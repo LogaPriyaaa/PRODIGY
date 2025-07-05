@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loga Priya | Web Developer Portfolio</title>
+  <style>
+    :root {
+      --primary: #0606fb;
+      --secondary: #fc07c7;
+      --text-dark: #010707ee;
+      --text-light: #f9fafb;
+      --bg-light: #f3f4f6;
+      --bg-dark: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    header img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid #454343e1;
+      margin-top: 50px;
+    }
+
+    nav {
+      background-color: var(--bg-dark);
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    a.project-link {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1> Hello, I'm Loga Priya</h1>
+    <p> A passionate web developer using modern technologies | Creative Designer | Tech Enthusiast</p>
+    <img src="c:\Users\shakthiganesh\Downloads\logoo.jpg" alt="Loga Priya Photo" />
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#Home">Home</a>
+    <a href="#About">About Me</a>
+    <a href="#Skills">Skills</a>
+    <a href="#Projects">Projects</a>
+    <a href="#Contact">Contact</a>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="card">
+      <h2>Welcome to My Portfolio</h2>
+      <p>
+        I'm Loga Priya, a passionate web developer with a strong focus on frontend technologies and UI/UX design.
+        I specialize in building clean, responsive, and user-focused websites using modern frameworks and best practices.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        I'm Loga Priya, a detail-oriented and passionate developer , currently pursuing an integrated M.Tech in Software Engineering. I'm driven by a deep interest in building user-centric web and software applications that are both functional and visually appealing.
+        From an early stage in my academic journey, I discovered my love for turning ideas and mockups into interactive digital experiences. 
+        With a solid foundation in computer science principles and hands-on experience through various internships and real-world projects, I have developed a keen eye for clean design, performance optimization, and writing maintainable code.
+        I enjoy working on projects where I can solve problems through code—whether it's developing responsive web interfaces, integrating back-end services, or optimizing applications for performance and accessibility.      
+      </p>
+
+      <h3 classstyle="margin-top:20px; color: var(--primary);">Education</h3>
+      <ul>
+        <li>Integrated M.Tech in Software Engineering , VIT  University, (2022-2027)</li>
+      </ul>
+
+       <h3 classstyle="margin-top:20px; color: var(--primary);">Professional Experience</h3>
+      <ul>
+        <li>Frontend Developer Intern </li>
+        <li>Collaborated on 5+ live projects using HTML, CSS, JavaScript, and React</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="card">
+      <h2>Skills</h2>
+      <ul>
+        <li>Languages: HTML5, CSS3, JavaScript, Python</li>
+        <li>Frameworks: React.js, Node.js</li>
+        <li>Design Tools: Figma, Adobe XD</li>
+        <li>Version Control: Git, GitHub</li>
+        <li>Responsive Design, SEO Basics, Accessibility Standards</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="card">
+      <h2>Projects</h2>
+
+      <h3>📌 Portfolio Website</h3>
+      <p>A personal website built with HTML/CSS to showcase my skills and journey. <a class="project-link" href="#">View Project</a></p>
+
+      <h3>📌 Weather App</h3>
+      <p>A JavaScript app using OpenWeather API to display real-time weather by location. <a class="project-link" href="#">View Project</a></p>
+
+      <h3>📌 Task Manager</h3>
+      <p>A React-based to-do list application with local storage and animations. <a class="project-link" href="#">View Project</a></p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: logapriya@example.com</p>
+      <p>Phone: +91 12345 67890</p>
+      <p>LinkedIn: <a class="project-link" href="https://linkedin.com/in/logapriya" target="_blank" rel="noopener">linkedin.com/in/logapriya</a></p>
+      <p>Location: Vellore , India</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Loga Priya. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

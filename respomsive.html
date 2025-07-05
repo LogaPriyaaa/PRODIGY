@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Landing Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ========== NAVIGATION BAR ========== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      z-index: 999;
+    }
+
+    nav.scrolled {
+      background-color: #333;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    ul.nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    ul.nav-links li a:hover {
+      color: #ff9800;
+      transform: scale(1.1);
+    }
+
+    /* ========== PAGE CONTENT ========== */
+    header {
+      height: 100vh;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 0;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 600px;
+    }
+
+    section {
+      padding: 100px 40px;
+    }
+
+    section:nth-child(even) {
+      background: #f0f0f0;
+    }
+
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 1em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .services-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    .services-list li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .services-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #2193b0;
+    }
+
+    .contact-details {
+      font-size: 1em;
+      line-height: 1.8;
+    }
+
+    .contact-details span {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* ========== MEDIA QUERIES ========== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      ul.nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <div class="logo">MySite</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header / Landing Section -->
+  <header id="home">
+    <h1>Welcome to MySite</h1>
+    <p>Build your future with a modern, responsive landing page.</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At MySite, we are a team of innovative and passionate developers dedicated to crafting digital solutions that make a difference. With years of experience in web development, user interface design, and software engineering, we bring ideas to life using cutting-edge technologies.</p>
+    <p>We believe in creating not just websites, but experiences — blending creativity with performance to deliver interactive, scalable, and user-focused platforms.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>We offer a comprehensive suite of services designed to help you grow and thrive in the digital world. Whether you're a startup, a growing business, or an established brand, we tailor our solutions to your needs.</p>
+    <ul class="services-list">
+      <li>Custom Web Application Development</li>
+      <li>Responsive Website Design & Redesign</li>
+      <li>UI/UX Design and Wireframing</li>
+      <li>Search Engine Optimization (SEO)</li>
+      <li>Digital Marketing and Branding</li>
+      <li>eCommerce Solutions</li>
+      <li>Maintenance & Support</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you! Reach out with your questions, ideas, or collaboration requests. Our team is always ready to help you bring your vision to life.</p>
+    <div class="contact-details">
+      <span><strong>Email:</strong> support@mysite.com</span>
+      <span><strong>Phone:</strong> +91-12345 67890</span>
+      <span><strong>Address:</strong> 123 Web Street, Tech City, India</span>
+      <span><strong>Follow us on:</strong> Facebook | Twitter | LinkedIn</span>
+       
+      </span>
+    </div>
+  </section>
+
+  <!-- Scroll Script -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

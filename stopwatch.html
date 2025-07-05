@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stopwatch App</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .stopwatch {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    #time-display {
+      font-size: 48px;
+      margin: 20px 0;
+      color: #222;
+    }
+
+    .buttons button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .start { background-color: #4caf50; color: white; }
+    .pause { background-color: #f57c00; color: white; }
+    .reset { background-color: #f44336; color: white; }
+    .lap { background-color: #2196f3; color: white; }
+
+    .laps {
+      margin-top: 20px;
+      max-height: 150px;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .lap-item {
+      background: #eef;
+      margin: 5px 0;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stopwatch</h1>
+  <div class="stopwatch">
+    <div id="time-display">00:00:00.00</div>
+    <div class="buttons">
+      <button class="start" onclick="start()">Start</button>
+      <button class="pause" onclick="pause()">Pause</button>
+      <button class="reset" onclick="reset()">Reset</button>
+      <button class="lap" onclick="lap()">Lap</button>
+    </div>
+    <div class="laps" id="laps"></div>
+  </div>
+
+  <script>
+    let startTime = 0;
+    let elapsedTime = 0;
+    let timerInterval;
+    let isRunning = false;
+
+    function timeToString(time) {
+      let diffInHrs = time / 3600000;
+      let hh = Math.floor(diffInHrs);
+
+      let diffInMin = (diffInHrs - hh) * 60;
+      let mm = Math.floor(diffInMin);
+
+      let diffInSec = (diffInMin - mm) * 60;
+      let ss = Math.floor(diffInSec);
+
+      let diffInMs = (diffInSec - ss) * 100;
+      let ms = Math.floor(diffInMs);
+
+      let formatted =
+        `${hh.toString().padStart(2, "0")}:` +
+        `${mm.toString().padStart(2, "0")}:` +
+        `${ss.toString().padStart(2, "0")}.` +
+        `${ms.toString().padStart(2, "0")}`;
+
+      return formatted;
+    }
+
+    function start() {
+      if (!isRunning) {
+        isRunning = true;
+        startTime = Date.now() - elapsedTime;
+        timerInterval = setInterval(() => {
+          elapsedTime = Date.now() - startTime;
+          document.getElementById("time-display").textContent = timeToString(elapsedTime);
+        }, 10);
+      }
+    }
+
+    function pause() {
+      if (isRunning) {
+        isRunning = false;
+        clearInterval(timerInterval);
+      }
+    }
+
+    function reset() {
+      clearInterval(timerInterval);
+      isRunning = false;
+      elapsedTime = 0;
+      document.getElementById("time-display").textContent = "00:00:00.00";
+      document.getElementById("laps").innerHTML = "";
+    }
+
+    function lap() {
+      if (isRunning) {
+        const lapTime = timeToString(elapsedTime);
+        const lapItem = document.createElement("div");
+        lapItem.className = "lap-item";
+        lapItem.textContent = `Lap: ${lapTime}`;
+        document.getElementById("laps").appendChild(lapItem);
+      }
+    }
+  </script>
+</body>
+</html>
